@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardImg, CardTitle, CardImgOverlay } from 'reactstrap';
+import { Card, CardImg, CardTitle, CardImgOverlay, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -25,6 +25,15 @@ function Directory(props) {
   });
   return (
     <div className="container">
+      <div className="row">
+        <div className="col">
+          <Breadcrumb>
+            <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+            <BreadcrumbItem active>Directory</BreadcrumbItem>
+            <hr/>
+          </Breadcrumb>
+        </div>
+      </div>
       <div className="row">
         {directory}
       </div>
