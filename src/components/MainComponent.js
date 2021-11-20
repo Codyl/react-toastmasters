@@ -10,6 +10,7 @@ import { COMMENTS } from "../shared/comments";
 import { PARTNERS } from "../shared/partners";
 import { PROMOTIONS } from "../shared/promotions";
 import CampsiteInfo from "./CampsiteInfoComponent";
+import About from "./AboutComponent";
 
 class Main extends Component {
   constructor(props) {
@@ -68,6 +69,7 @@ class Main extends Component {
             component={CampsiteWithId}
           />
           <Route exact path="/contactus" component={Contact} />
+          <Route exact path="/aboutus" render={() => <About partners={this.state.partners} />}/>
           <Redirect to="/home" />
         </Switch>
         <Footer />
