@@ -171,7 +171,14 @@ class Contact extends Component {
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label htmlFor="phoneNum" md={2}>
+                <Label
+                  htmlFor="phoneNum"
+                  md={2}
+                  onCopy={() =>
+                    alert(
+                      "This phone is copyrighted. Remove your copy immidiately!"
+                    )
+                  }>
                   Phone
                 </Label>
                 <Col md={10}>
