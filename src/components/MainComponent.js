@@ -2,18 +2,17 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Directory from "./DirectoryComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import Contact from "./ContactComponent";
-import CampsiteInfo from "./CampsiteInfoComponent";
-import About from "./AboutComponent";
 import Jumbotron from "reactstrap/lib/Jumbotron";
 import Button from "reactstrap/lib/Button";
 import Col from "reactstrap/lib/Col";
 import Row from "reactstrap/lib/Row";
 import EVENTS from "./EVENTS";
+import About from "./AboutComponent";
+import Profile from "./ProfileComponent";
 
 const mapStateToProps = (state) => {
   return {
@@ -23,7 +22,6 @@ const mapStateToProps = (state) => {
 };
 
 class Main extends Component {
-  hideNotification = () => {};
   render() {
     const HomePage = () => {
       return <Home events={this.props.events} />;
@@ -73,7 +71,8 @@ class Main extends Component {
               </Col>
             )}
             <Col>
-              <Button onClick={this.hideNotification}>X</Button>
+              <Button>X</Button>
+              {/* onClick={() => dispatch({ notify: false })} */}
             </Col>
           </Row>
         </Jumbotron>
@@ -87,16 +86,11 @@ class Main extends Component {
         <Header />
         <Switch>
           <Route path="/home" component={HomePage} />
-          <Route
-            exact
-            path="/join"
-            render={() => <Directory campsites={this.props.campsites} />}
-          />
-          <Route exact path="/contactus" component={Contact} />
+          <Route exact path="/contact" component={Contact} />
           <Route exact path="/join" component={Contact} />
-          <Route exact path="/about" component={Contact} />
+          <Route exact path="/about" component={About} />
           <Route exact path="/agenda" component={Contact} />
-          <Route exact path="/profile/:username" component={Contact} />
+          <Route exact path="/profile/:username" component={Profile} />
           <Route exact path="/visit" component={Contact} />
 
           <Redirect to="/home" />

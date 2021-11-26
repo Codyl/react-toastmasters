@@ -71,32 +71,32 @@ class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/directory">
+                  <NavLink className="nav-link" to="/join">
                     <i className="fa fa-handshake-o fa-lg" /> Join
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/aboutus">
+                  <NavLink className="nav-link" to="/about">
                     <i className="fa fa-info fa-lg" /> About
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/contactus">
+                  <NavLink className="nav-link" to="/contact">
                     <i className="fa fa-address-card fa-lg" /> Contact Us
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/contactus">
+                  <NavLink className="nav-link" to="/events">
                     <i className="fa fa-calendar fa-lg" /> Event
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/contactus">
+                  <NavLink className="nav-link" to="/profile/0">
                     <i className="fa fa-user fa-lg" /> Profile
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/contactus">
+                  <NavLink className="nav-link" to="/visit">
                     <i className="fa fa-video-camera fa-lg" /> Visit
                   </NavLink>
                 </NavItem>
