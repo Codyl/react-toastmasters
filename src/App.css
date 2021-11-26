@@ -1,8 +1,15 @@
-body { 
+:root {
+  --primary: #103056;
+}
+body {
   font-family: "open-sans", sans-serif;
 }
 
-h1,h2,h3, .card-body>.card-body {
+h1,
+h2,
+h3,
+.card-body > .card-body,
+.title {
   font-family: "Lobster", cursive;
 }
 
@@ -12,7 +19,7 @@ h1,h2,h3, .card-body>.card-body {
 }
 
 h2 {
-  color: #3046C5;
+  color: #3046c5;
 }
 
 .card-img-overlay > .card-title {
@@ -21,27 +28,40 @@ h2 {
 }
 
 .row-content {
-    padding: 50px 0;
-    border-bottom: 1px ridge;
-    min-height: 200px;
+  padding: 50px 0;
+  border-bottom: 1px ridge;
+  min-height: 200px;
 }
 
 .site-footer {
-    background-image: linear-gradient(#CEC8FF, white);
-    padding: 20px 0;
+  background-image: linear-gradient(var(--primary), #3046c5);
+  padding: 20px 0;
+  color: white;
 }
 
 .jumbotron {
-    margin: 0;
-    padding: 30px;
-    background-image: linear-gradient(to right, #5637DD, #3046C5, #60106B);
-    color: white;
+  margin: 0;
+  padding: 30px;
+  background-image: linear-gradient(to right, #5637dd, #3046c5, #60106b);
+  color: white;
 }
 
 .jumbotron h2 {
-    color: #CEC8FF;
+  color: #cec8ff;
 }
 
 .navbar-dark {
-    background-color: #901CAD;
+  background-color: #103056;
+}
+
+.homeImage {
+  background-image: url("https://zurichwalkthetalk.files.wordpress.com/2019/12/img_20191113_193217_1.jpg");
+  height: fit-content;
+  width: 100%;
+  background-size: cover;
+  filter: grayscale(50%);
+}
+
+.item {
+  background-color: rgb(210, 233, 255);
 }

@@ -1,13 +1,8 @@
-import { CAMPSITES } from "../shared/campsites";
-import { COMMENTS } from "../shared/comments";
-import { PARTNERS } from "../shared/partners";
-import { PROMOTIONS } from "../shared/promotions";
+import EVENTS from "../components/EVENTS";
 
 export const initialState = {
-  campsites: CAMPSITES,
-  comments: COMMENTS,
-  partners: PARTNERS,
-  promotions: PROMOTIONS,
+  events: EVENTS,
+  notify: true,
 };
 
 export const Reducer = (state = initialState, action) => {

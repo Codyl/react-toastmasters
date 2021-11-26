@@ -51,17 +51,6 @@ class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        <Jumbotron fluid>
-          <div className="container">
-            <div className="row">
-              <div className="col">
-                <h1>NuCamp</h1>
-                <h2>a better way to camp</h2>
-              </div>
-            </div>
-          </div>
-        </Jumbotron>
-
         <Navbar dark sticky="top" expand="md">
           <div className="container">
             <NavbarBrand
@@ -71,7 +60,7 @@ class Header extends Component {
               height="30"
               width="30"
               alt="NuCamp Logo">
-              NuCamp
+              Midway Toastmasters
             </NavbarBrand>
             <NavbarToggler onClick={this.toggleNav} />
             <Collapse isOpen={this.state.isNavOpen} navbar>
@@ -83,7 +72,7 @@ class Header extends Component {
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" to="/directory">
-                    <i className="fa fa-list fa-lg" /> Directory
+                    <i className="fa fa-handshake-o fa-lg" /> Join
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -94,6 +83,21 @@ class Header extends Component {
                 <NavItem>
                   <NavLink className="nav-link" to="/contactus">
                     <i className="fa fa-address-card fa-lg" /> Contact Us
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/contactus">
+                    <i className="fa fa-calendar fa-lg" /> Event
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/contactus">
+                    <i className="fa fa-user fa-lg" /> Profile
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/contactus">
+                    <i className="fa fa-video-camera fa-lg" /> Visit
                   </NavLink>
                 </NavItem>
               </Nav>
