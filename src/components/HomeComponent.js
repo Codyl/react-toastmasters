@@ -1,11 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, CardImg, CardText, CardBody, CardTitle, Col } from "reactstrap";
-import Button from "reactstrap/lib/Button";
-import Jumbotron from "reactstrap/lib/Jumbotron";
-import Row from "reactstrap/lib/Row";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  Col,
+  Row,
+  Jumbotron,
+  Button,
+} from "reactstrap";
+
 import { FadeTransform, Fade, Stagger } from "react-animation-components";
 import EVENTS from "./EVENTS";
+import EventItemComponent from "./EventItemComponent";
 
 function RenderCard({ item }) {
   return (
@@ -43,7 +52,7 @@ function RenderCard({ item }) {
           </Row>
         </CardText>
         <Link to="/join">
-          <Button color="primary">Sign up to be a toastmaster</Button>
+          <Button color="success">Sign up to be a toastmaster</Button>
         </Link>
       </CardBody>
     </Card>
@@ -103,36 +112,7 @@ function Home(props) {
             <h2>Upcoming Events</h2>
             <ul style={{ listStyleType: "none" }}>
               {props.events.map((event, limitTo) => {
-                return limitTo < 3 &&(
-                  <li key={event.id}>
-                    <Row>
-                      <Col sm={4}>
-                        <h4>{event.date.toDateString()}</h4>
-                        <h5>{event.date.toLocaleTimeString("en-US")}</h5>
-                        <p>{event.name}</p>
-                      </Col>
-                      <Col sm={5}>
-                        <p>
-                          Open positions:
-                          <br />
-                          {event.positions
-                            .filter((position) => position.userID === null)
-                            .map((position) => (
-                              <p>
-                                {position.position} <Button>Sign up</Button>
-                              </p>
-                            ))}
-                        </p>
-                      </Col>
-                      <Col>
-                        <Link to={`./event/${event.id}`}>
-                          <Button color="info">More Details</Button>
-                        </Link>
-                      </Col>
-                    </Row>
-                    <hr />
-                  </li>
-                );
+                return limitTo < 3 && <EventItemComponent event={event} />;
               })}
             </ul>
             <Link to="/events">
