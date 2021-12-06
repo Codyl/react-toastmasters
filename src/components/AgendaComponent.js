@@ -16,7 +16,7 @@ export default function AgendaComponent() {
             <p>{props.details}</p>
             <p>Presented by {props.toastmaster}</p>
           </Col>
-          <Col>{props?.image}</Col>
+          <Col md>{props?.image}</Col>
         </Row>
       </>
     );

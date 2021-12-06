@@ -22,10 +22,10 @@ export default class Join extends Component {
     });
   };
   componentWillUnmount() {
-    if(this.state.step != 0 && this.state.step < 6)
-    window.confirm(
-      "You will lose you progress if you leave this page. Continue?"
-    );
+    if (this.state.step != 0 && this.state.step < 6)
+      window.confirm(
+        "You will lose you progress if you leave this page. Continue?"
+      );
   }
   render() {
     const Step0 = () => (
@@ -40,15 +40,15 @@ export default class Join extends Component {
       <>
         <h2>Step 1: Agreement</h2>
         <Row>
-          <input type="email" placeholder="email" required/>
+          <input type="email" placeholder="email" required />
         </Row>
         <Row>
           <span>
-            <input type="checkbox" required/> By submitting this online membership
-            application, you agree to treat it as the legally binding equivalent
-            of the standard Toastmasters International membership application,
-            and you will be prompted to agree to all the same terms and
-            conditions.
+            <input type="checkbox" required /> By submitting this online
+            membership application, you agree to treat it as the legally binding
+            equivalent of the standard Toastmasters International membership
+            application, and you will be prompted to agree to all the same terms
+            and conditions.
           </span>
         </Row>
       </>
@@ -56,36 +56,36 @@ export default class Join extends Component {
     const Step2 = () => (
       <>
         <h2>Step 2: Applicant Information</h2>
-          <h3>Full name</h3>
-          <FormGroup>
-            <div>
-              <label for="firstName">First name</label>
-              <input type="text" id="firstName" name="name" required/>
-            </div>
-            <div>
-              <label for="lastName">Last name</label>
-              <input type="text" id="LastName" name="name" required/>
-            </div>
-            <div>
-              <label for="middleName">Middle Initial</label>
-              <input type="text" id="MiddleName" name="name" />
-            </div>
-          </FormGroup>
-          <h3>Gender</h3>
-          <FormGroup>
-            <div>
-              <input type="radio" id="gender1" name="gender" value="male" />
-              <label for="gender1">Male</label>
-            </div>
-            <div>
-              <input type="radio" id="gender2" name="gender" value="female" />
-              <label for="gender2">Female</label>
-            </div>
-            <div>
-              <input type="radio" id="gender3" name="gender" value="other" />
-              <label for="gender3">Other</label>
-            </div>
-          </FormGroup>
+        <h3>Full name</h3>
+        <FormGroup>
+          <div>
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="name" required />
+          </div>
+          <div>
+            <label for="lastName">Last name</label>
+            <input type="text" id="LastName" name="name" required />
+          </div>
+          <div>
+            <label for="middleName">Middle Initial</label>
+            <input type="text" id="MiddleName" name="name" />
+          </div>
+        </FormGroup>
+        <h3>Gender</h3>
+        <FormGroup>
+          <div>
+            <input type="radio" id="gender1" name="gender" value="male" />
+            <label for="gender1">Male</label>
+          </div>
+          <div>
+            <input type="radio" id="gender2" name="gender" value="female" />
+            <label for="gender2">Female</label>
+          </div>
+          <div>
+            <input type="radio" id="gender3" name="gender" value="other" />
+            <label for="gender3">Other</label>
+          </div>
+        </FormGroup>
       </>
     );
     //address for magazine, summary of dues, Members agreement
@@ -94,7 +94,7 @@ export default class Join extends Component {
         <h2>Step 3: Address</h2>
         <div>
           <label htmlFor="address1">Address line 1</label>
-          <input type="text" name="address1" required/>
+          <input type="text" name="address1" required />
         </div>
         <div>
           <label htmlFor="address2">Address line 2</label>
@@ -122,7 +122,7 @@ export default class Join extends Component {
         </div>
         <div>
           <label htmlFor="mobilePhone">Mobile phone number</label>
-          <input type="text" name="mobilePhone" required/>
+          <input type="text" name="mobilePhone" required />
         </div>
       </>
     );
@@ -147,7 +147,8 @@ export default class Join extends Component {
               type="image"
               name="submit"
               src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
-              alt="PayPal - The safer, easier way to pay online" required
+              alt="PayPal - The safer, easier way to pay online"
+              required
             />
             <img
               alt=""
@@ -207,7 +208,7 @@ export default class Join extends Component {
               education and recognition programs
             </li>
             <li>
-              <input type="checkbox" required/>
+              <input type="checkbox" required />
               To act within Toastmasters core values of integrity, respect,
               service and excellence during the conduct of all Toastmasters
               activities
@@ -224,14 +225,18 @@ export default class Join extends Component {
           electronic signature.
         </span>
         <br />
-        <input type="text" name="agreement" required/>
+        <input type="text" name="agreement" required />
       </>
     );
     const Complete = () => {
-      return (<div>
-        <p>Your application is being proccessed. You may now close this tab.</p>
-      </div>);
-    }
+      return (
+        <div>
+          <p>
+            Your application is being proccessed. You may now close this tab.
+          </p>
+        </div>
+      );
+    };
     const steps = [
       <Step0 />,
       <Step1 />,
@@ -239,13 +244,19 @@ export default class Join extends Component {
       <Step3 />,
       <Step4 />,
       <Step5 />,
-      <Complete />
+      <Complete />,
     ];
     return (
       <Container>
         <LocalForm onSubmit={this.incrementStep}>
           {steps[this.state.step]}
-          {this.state.step < steps.length-1 ? <Button type="submit">Next Step</Button> : ''}
+          {this.state.step < steps.length - 1 ? (
+            <Button type="submit" color="success">
+              Next Step
+            </Button>
+          ) : (
+            ""
+          )}
         </LocalForm>
       </Container>
     );
