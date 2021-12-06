@@ -59,25 +59,43 @@ class Contact extends Component {
 
         <div className="row row-content align-items-center">
           <div className="col-sm-4">
+            <h4>Meeting information</h4>
             <h5>Our Address</h5>
             <address>
-              1 Nucamp Way
+              512 E. Stephens Street, Anne Hart Raymond Center, Room 120.
               <br />
-              Seattle, WA 98001
+              Midway, KY,
               <br />
               U.S.A.
             </address>
+            <a href="https://zoom.us/j/455502545?pwd=cGJXUFVMK1RveFZkemZmYkxMb0x6dz09">
+              Zoom meeting link
+            </a>
           </div>
           <div className="col">
-            <a role="button" className="btn btn-link" href="tel:+12065551234">
-              <i className="fa fa-phone" /> 1-206-555-1234
+            <h4>Leadership Contacts</h4>
+            <a role="button" className="btn btn-link" href="tel:+8599832709">
+              Arlynn, DTM (Vice President Membership):{" "}
+              <i className="fa fa-phone" />
+              859-983-2709
+            </a>
+            <br />
+            <a role="button" className="btn btn-link" href="tel:+8593519753">
+              Rick Sebree DTM (President):
+              <i className="fa fa-phone" />
+              859-351-9753
+            </a>
+            <br />
+            <a role="button" className="btn btn-link" href="tel:+5023190252">
+              Steve Lanham DTM (Secretary): <i className="fa fa-phone" />
+              502-319-0252
             </a>
             <br />
             <a
               role="button"
               className="btn btn-link"
               href="mailto:fakeemail@fakeemail.co">
-              <i className="fa fa-envelope-o" /> campsites@nucamp.co
+              <i className="fa fa-envelope-o" /> 1990654@toastmastersclubs.com
             </a>
           </div>
         </div>

@@ -30,3 +30,4 @@ const USERS = [
     photoUrl: "",
   },
 ];
+export default USERS;

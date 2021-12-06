@@ -65,6 +65,31 @@ function About(props) {
           </Card>
         </div>
       </div>
+      <h3>What to expect as a new Midway toastmaster</h3>
+      <p>
+        As a toastmaster you can expect a group of toastmasters, people learning
+        just like you, who are ready to support you in your goals. People can
+        attend regardless of whether they are a toastmaster of another club or
+        not a toastmaster. Your learning will be through{" "}
+        <a href="https://www.toastmasters.org/pathways-overview">
+          toastmasters learning paths
+        </a> where you will choose a specific path such as dynamic leadership or presentation mastery and complete assignments.
+       Every meeting we:
+      </p>
+      <ul>
+        <li>Have prepared speakers on a variety of topics</li>
+        <li>
+          Have evaluators seek to provide positive feedback and constructive
+          criticism
+        </li>
+        <li>Seek to share interest in our fellow toastmasters lives</li>
+        <li>Seek to grow through a toastmasters position</li>
+        <li>Have opportunities to earn awards and grow your speaking skills</li>
+        <li>Keep our meetings to less than an hour and a half</li>
+        <li>Always having an opporunity to speak and to get involved</li>
+      </ul>
+      <h3>What makes Midway Toastmasters different? </h3>
+      <p></p>
     </div>
   );
 }

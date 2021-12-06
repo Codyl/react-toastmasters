@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Header from "./HeaderComponent";
@@ -13,11 +13,16 @@ import Row from "reactstrap/lib/Row";
 import EVENTS from "./EVENTS";
 import About from "./AboutComponent";
 import Profile from "./ProfileComponent";
+import Join from "./JoinComponent";
+import EventsComponent from "./EventsComponent";
+import EventComponent from "./EventComponent";
+import AgendaComponent from "./AgendaComponent";
 
 const mapStateToProps = (state) => {
   return {
-    events: EVENTS,
+    events: state.events,
     notify: state.notify,
+    users: state.users,
   };
 };
 
@@ -66,12 +71,29 @@ class Main extends Component {
                   {todayEvent.name} is happening today at{" "}
                   {todayEvent.date.toLocaleTimeString()}!
                 </p>
-                <p>Unfilled role: Evaluator #1, speaker #2</p>
-                <Button>View agenda</Button>
+                <p>
+                  Open Positions:
+                  {console.log(todayEvent.positions)}
+                  {todayEvent.positions
+                    .filter((position) => position.userID === null)
+                    .map((position) => (
+                      <p>
+                        {position.position} <Button>Sign up</Button>
+                      </p>
+                    ))}
+                </p>
+                <Link to={`./event/${todayEvent.id}`}>
+                  <Button>View agenda</Button>
+                  <Button color="light">
+                    <i className="fa fa-video-camera fa-lg" /> Join meeting
+                  </Button>
+                </Link>
               </Col>
             )}
             <Col>
-              <Button>X</Button>
+              <Button onClick={() => this.props.dispatch({ type: "HIDE" })}>
+                X
+              </Button>
               {/* onClick={() => dispatch({ notify: false })} */}
             </Col>
           </Row>
@@ -87,15 +109,21 @@ class Main extends Component {
         <Switch>
           <Route path="/home" component={HomePage} />
           <Route exact path="/contact" component={Contact} />
-          <Route exact path="/join" component={Contact} />
+          <Route exact path="/join" component={Join} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/agenda" component={Contact} />
-          <Route exact path="/profile/:username" component={Profile} />
+          <Route exact path="/agenda" component={AgendaComponent} />
+          <Route exact path="/events" component={EventsComponent} />
+          <Route exact path="/event/:id" component={EventComponent} />
+          <Route
+            exact
+            path="/profile/:username"
+            render={() => <Profile users={this.props.users} />}
+          />
           <Route exact path="/visit" component={Contact} />
 
           <Redirect to="/home" />
         </Switch>
-        <Footer />
+        <Footer/>
       </div>
     );
   }
