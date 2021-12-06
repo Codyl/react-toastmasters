@@ -94,7 +94,7 @@ class Contact extends Component {
             <a
               role="button"
               className="btn btn-link"
-              href="mailto:fakeemail@fakeemail.co">
+              href="mailto:1990654@toastmastersclubs.com">
               <i className="fa fa-envelope-o" /> 1990654@toastmastersclubs.com
             </a>
           </div>

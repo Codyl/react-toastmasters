@@ -37,18 +37,23 @@ h2 {
 }
 
 .site-footer {
-  background-image: linear-gradient(var(--primary), #3046c5);
+  background-color: var(--primary);
   padding: 20px 0;
   color: white;
   position: absolute;
   bottom: 0;
   width: 100%;
 }
+@media only screen and (max-width: 600px) {
+  body {
+    padding-bottom: 20rem;
+  }
+}
 
 .jumbotron {
   margin: 0;
   padding: 30px;
-  background-image: linear-gradient(to right, #5637dd, #3046c5, #60106b);
+  background-image: linear-gradient(to right, var(--primary), #3046c5);
   color: white;
 }
 
@@ -71,4 +76,3 @@ h2 {
 .item {
   background-color: rgb(210, 233, 255);
 }
-

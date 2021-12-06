@@ -1,148 +1,154 @@
 import React from "react";
-
+import { Container } from "reactstrap";
+import styled from "styled-components";
+import { Button, Row, Col } from "reactstrap";
 export default function AgendaComponent() {
+  const TopicTitle = styled.h3`
+    background-color: gray;
+  `;
+  const AgendaItem = (props) => {
+    return (
+      <>
+        <h4>{props.title}</h4>
+        <Row>
+          <Col>{props.timeframe}</Col>
+          <Col>
+            <p>{props.details}</p>
+            <p>Presented by {props.toastmaster}</p>
+          </Col>
+          <Col>{props?.image}</Col>
+        </Row>
+      </>
+    );
+  };
   return (
-    <div id="accordion">
-      <div className="card">
-        <div className="card-header" id="headingOne">
-          <h5 className="mb-0">
-            <button
-              className="btn btn-link"
-              data-toggle="collapse"
-              data-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne">
-              Introduction (6-6:04pm)
-            </button>
-          </h5>
-        </div>
-
-        <div
-          id="collapseOne"
-          className="collapse show"
-          aria-labelledby="headingOne"
-          data-parent="#accordion">
-          <div className="card-body">x</div>
-        </div>
-      </div>
-
-      <div className="card">
-        <div className="card-header" id="headingThree">
-          <h5 className="mb-0">
-            <button
-              className="btn btn-link collapsed"
-              data-toggle="collapse"
-              data-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree">
-              Speeches (6:04-6:30pm)
-            </button>
-          </h5>
-        </div>
-        <div
-          id="collapseThree"
-          className="collapse"
-          aria-labelledby="headingThree"
-          data-parent="#accordion">
-          <div className="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-            terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-            skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-            single-origin coffee nulla assumenda shoreditch et. Nihil anim
-            keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-            sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-            occaecat craft beer farm-to-table, raw denim aesthetic synth
-            nesciunt you probably haven't heard of them accusamus labore
-            sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div className="card">
-        <div className="card-header" id="headingTwo">
-          <h5 className="mb-0">
-            <button
-              className="btn btn-link collapsed"
-              data-toggle="collapse"
-              data-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo">
-              Table topics (6:32 - 6:42pm)
-            </button>
-          </h5>
-        </div>
-        <div
-          id="collapseTwo"
-          className="collapse"
-          aria-labelledby="headingTwo"
-          data-parent="#accordion">
-          <div className="card-body">x</div>
-        </div>
-      </div>
-      <div className="card">
-        <div className="card-header" id="headingThree">
-          <h5 className="mb-0">
-            <button
-              className="btn btn-link collapsed"
-              data-toggle="collapse"
-              data-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree">
-              Evaluations (6:42-7:05pm)
-            </button>
-          </h5>
-        </div>
-        <div
-          id="collapseThree"
-          className="collapse"
-          aria-labelledby="headingThree"
-          data-parent="#accordion">
-          <div className="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-            terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-            skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-            single-origin coffee nulla assumenda shoreditch et. Nihil anim
-            keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-            sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-            occaecat craft beer farm-to-table, raw denim aesthetic synth
-            nesciunt you probably haven't heard of them accusamus labore
-            sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div className="card">
-        <div className="card-header" id="headingThree">
-          <h5 className="mb-0">
-            <button
-              className="btn btn-link collapsed"
-              data-toggle="collapse"
-              data-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree">
-              Conclusion (7:05-7:12pm)
-            </button>
-          </h5>
-        </div>
-        <div
-          id="collapseThree"
-          className="collapse"
-          aria-labelledby="headingThree"
-          data-parent="#accordion">
-          <div className="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-            terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-            skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-            single-origin coffee nulla assumenda shoreditch et. Nihil anim
-            keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-            sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-            occaecat craft beer farm-to-table, raw denim aesthetic synth
-            nesciunt you probably haven't heard of them accusamus labore
-            sustainable VHS.
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <Container>
+        <h1>Agenda</h1>
+        <h2>Theme: TBD</h2>
+        <div>date</div>
+        <TopicTitle>Introduction</TopicTitle>
+        <AgendaItem
+          title="Welcome"
+          timeframe="6:00-6:01pm"
+          details="Call meeting to order. Welcome guests. Introduce Toastmaster of the Day."
+          toastmaster="steve"
+        />
+        <AgendaItem
+          title="Opening Remarks"
+          timeframe="6:01-6:04pm"
+          details="Make brief opening remarks. Ask someone to read TM club mission statement. Call for WORD OF THE DAY. Explain roles, if guests present. (Before meeting, fill any open meeting roles.) Call for 2-minute break for speaker-evaluator discussions. Introduce speakers."
+          toastmaster="steve"
+        />
+        <AgendaItem
+          title="Word of the day"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+      </Container>
+      <Container>
+        <TopicTitle>Speeches</TopicTitle>
+        <AgendaItem
+          title="The Dynamics of the family"
+          timeframe="6:04-6:13pm"
+          details="Dynamic Leadership - Ice breaker"
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="The Dynamics of the family"
+          timeframe="6:04-6:13pm"
+          details="Dynamic Leadership - Ice breaker"
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="The Dynamics of the family"
+          timeframe="6:04-6:13pm"
+          details="Dynamic Leadership - Ice breaker"
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="Vote"
+          timeframe="6:04-6:13pm"
+          details="Ask if all speakers in time and call for vote. Call for JOKE OF THE DAY. Introduce Table Topics Master."
+          toastmaster="Thomas"
+        />
+      </Container>
+      <Container>
+        <TopicTitle>Table topics</TopicTitle>
+        <AgendaItem
+          title="theme"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="Joke of the day"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+      </Container>
+      <Container>
+        <TopicTitle>Evaluations</TopicTitle>
+        <AgendaItem
+          title="Evaluation of thomas speech"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="Evaluation of thomas speech"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="Evaluation of thomas speech"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="General Evaluation"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="Timer"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="Ah-counter/Grammarian"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+      </Container>
+      <Container>
+        <TopicTitle>Conclusion</TopicTitle>
+        <AgendaItem
+          title="Presentation of awards"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="Closing comments"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+        <AgendaItem
+          title="Thought of the day"
+          timeframe="6:04-6:13pm"
+          details="Review HARDR method (Humor, Avoid, Redirect, Direct, Reverse). Call on 2-4 members. Ask if all speakers in time. Recap. Call for vote. Return meeting to Toastmaster of the Day."
+          toastmaster="Thomas"
+        />
+      </Container>
+    </>
   );
 }

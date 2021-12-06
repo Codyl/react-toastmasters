@@ -172,6 +172,19 @@ class Profile extends Component {
             </LocalForm>
           </Col>
         </Row>
+        <Row>
+          <Col>
+            <div>
+              Assigned mentor: 
+              <a role="button" className="btn btn-link" href="tel:+8599832709">
+                Arlynn, DTM (Vice President Membership):{" "}
+                <i className="fa fa-phone" />
+                859-983-2709
+              </a>
+            </div>
+          </Col>
+        </Row>
+        <Row>You are up to date on your payments!</Row>
       </Container>
     );
   }

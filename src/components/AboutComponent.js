@@ -5,29 +5,17 @@ import {
   Card,
   CardBody,
   CardHeader,
-  Media,
+  Row,
+  Col,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-function RenderPartner({ partner }) {
-  console.log(partner);
-  if (partner) {
-    return (
-      <>
-        <Media object src={partner.image} alt={partner.name} width="150" />
-        <Media body className="ml-5 mb-4">
-          <Media heading>{partner.name}</Media>
-          {partner.description}
-        </Media>
-      </>
-    );
-  }
-  return <div />;
-}
+import Container from "reactstrap/lib/Container";
+
 function About(props) {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col">
+    <Container>
+      <Row>
+        <Col>
           <Breadcrumb>
             <BreadcrumbItem>
               <Link to="/home">Home</Link>
@@ -36,18 +24,18 @@ function About(props) {
           </Breadcrumb>
           <h2>About Us</h2>
           <hr />
-        </div>
-      </div>
-      <div className="row row-content">
-        <div className="col-sm-6">
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={6}>
           <h3>Our Mission</h3>
           <p>
             We provide a supportive and positive learning experience in which
             members are empowered to develop communication and leadership
             skills, resulting in greater self-confidence and personal growth.
           </p>
-        </div>
-        <div className="col-sm-6">
+        </Col>
+        <Col sm={6}>
           <Card>
             <CardHeader className="bg-primary text-white">
               <h3>By the numbers</h3>
@@ -63,8 +51,8 @@ function About(props) {
               </dl>
             </CardBody>
           </Card>
-        </div>
-      </div>
+        </Col>
+      </Row>
       <h3>What to expect as a new Midway toastmaster</h3>
       <p>
         As a toastmaster you can expect a group of toastmasters, people learning
@@ -73,8 +61,9 @@ function About(props) {
         not a toastmaster. Your learning will be through{" "}
         <a href="https://www.toastmasters.org/pathways-overview">
           toastmasters learning paths
-        </a> where you will choose a specific path such as dynamic leadership or presentation mastery and complete assignments.
-       Every meeting we:
+        </a>{" "}
+        where you will choose a specific path such as dynamic leadership or
+        presentation mastery and complete assignments. Every meeting we:
       </p>
       <ul>
         <li>Have prepared speakers on a variety of topics</li>
@@ -89,8 +78,34 @@ function About(props) {
         <li>Always having an opporunity to speak and to get involved</li>
       </ul>
       <h3>What makes Midway Toastmasters different? </h3>
-      <p></p>
-    </div>
+      <Row>
+        <Col>
+          <p>
+            We're working toward excellence! Our room is bright. Our members are
+            vibrant. Our meetings are organized and peppy. We learn a lot. We
+            laugh a lot. Come see how Midway Toastmasters is unique. It's worth
+            the drive.
+          </p>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={5} md={3} lg={5} className="d-none d-sm-block">
+          <img
+            src="https://midwaytm.toastmastersclubs.org/imageuploads/1990654/Triple_Crown.jpg"
+            width="100%"
+            max-width="100px"
+          />
+        </Col>
+        <Col>
+          <p>
+            It's the measure of every Toastmasters Club's success. We are
+            President's Distinguished because our members achieve their goals.
+            By joining Midway Toastmasters, you will enjoy the highest quality,
+            productive meetings with great member enthusiasm.
+          </p>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

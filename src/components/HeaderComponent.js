@@ -33,6 +33,18 @@ class Header extends Component {
       isNavOpen: !this.state.isNavOpen,
     });
   };
+  hideNav = () => {
+    this.setState({
+      isNavOpen: false,
+    });
+  };
+  componentDidMount() {
+    window.addEventListener("scroll", this.hideNav);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.hideNav);
+  }
 
   toggleModal = () => {
     this.setState({
@@ -62,7 +74,7 @@ class Header extends Component {
               alt="NuCamp Logo">
               Midway Toastmasters
             </NavbarBrand>
-            <NavbarToggler onClick={this.toggleNav} />
+            <NavbarToggler onClick={this.toggleNav} onScroll={this.toggleNav} />
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar>
                 <NavItem>
@@ -95,7 +107,6 @@ class Header extends Component {
                     <i className="fa fa-user fa-lg" /> Profile
                   </NavLink>
                 </NavItem>
-
               </Nav>
               <span className="navbar-text ml-auto">
                 <Button outline onClick={this.toggleModal}>
