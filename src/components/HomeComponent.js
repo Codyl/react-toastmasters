@@ -128,7 +128,10 @@ function Home(props) {
                   );
                 })}
             </ul>
-            <Link to="/events">
+            <Link
+              to={`/events/${new Date().getFullYear()}/${
+                new Date().getMonth() + 1
+              }`}>
               <Button>See all Events</Button>
             </Link>
           </Jumbotron>

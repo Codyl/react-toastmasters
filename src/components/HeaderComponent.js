@@ -39,11 +39,25 @@ class Header extends Component {
     });
   };
   componentDidMount() {
-    window.addEventListener("scroll", this.hideNav);
+    window.scroll(window.top);
+    let prevScrollpos = window.pageYOffset;
+    window.addEventListener("scroll", () => {
+      const maxScroll = document.body.clientHeight - window.innerHeight;
+      let currentScrollPos = window.pageYOffset;
+      console.log(maxScroll);
+      if (
+        (maxScroll > 0 && prevScrollpos > currentScrollPos) ||
+        (maxScroll <= 0 && prevScrollpos > currentScrollPos) ||
+        (prevScrollpos <= 0 && currentScrollPos <= 0)
+      ) {
+        this.hideNav();
+      }
+      prevScrollpos = currentScrollPos;
+    });
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.hideNav);
+    window.removeEventListener("scroll", console.log(window.screenY));
   }
 
   toggleModal = () => {
@@ -74,43 +88,43 @@ class Header extends Component {
               alt="NuCamp Logo">
               Midway Toastmasters
             </NavbarBrand>
-            <NavbarToggler onClick={this.toggleNav} onScroll={this.toggleNav} />
+            <NavbarToggler onClick={this.toggleNav} />
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar>
-                <NavItem>
+                <NavItem onClick={this.hideNav}>
                   <NavLink className="nav-link" to="/home">
                     <i className="fa fa-home fa-lg" /> Home
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem onClick={this.hideNav}>
                   <NavLink className="nav-link" to="/join">
                     <i className="fa fa-handshake-o fa-lg" /> Join
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem onClick={this.hideNav}>
                   <NavLink className="nav-link" to="/about">
                     <i className="fa fa-info fa-lg" /> About
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem onClick={this.hideNav}>
                   <NavLink className="nav-link" to="/contact">
                     <i className="fa fa-address-card fa-lg" /> Contact Us
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem onClick={this.hideNav}>
                   <NavLink
                     className="nav-link"
                     to={`/events/${new Date().getFullYear()}/${
                       new Date().getMonth() + 1
                     }`}>
-                    <i className="fa fa-calendar fa-lg" /> Event
+                    <i className="fa fa-calendar fa-lg" /> Events
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink className="nav-link" to="/profile/0">
                     <i className="fa fa-user fa-lg" /> Profile
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
               </Nav>
               <span className="navbar-text ml-auto">
                 <Button outline onClick={this.toggleModal}>
