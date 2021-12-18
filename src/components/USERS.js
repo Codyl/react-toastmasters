@@ -11,7 +11,7 @@ const USERS = [
   },
   {
     id: 1,
-    name: "Banjo Lillywhite",
+    name: "Sundy DeGooyer",
     email: "lip@house.com",
     phone: "111-121-2111",
     bio: `
@@ -21,8 +21,18 @@ const USERS = [
   },
   {
     id: 2,
-    name: "Tweed Lillywhite",
+    name: "Eve Shell",
     email: "tonals@tea.com",
+    phone: "161-661-2346",
+    bio: `
+    Here is my great story.
+    `,
+    photoUrl: "",
+  },
+  {
+    id: 2,
+    name: "Dawn Mendez",
+    email: "test@test.com",
     phone: "161-661-2346",
     bio: `
     Here is my great story.

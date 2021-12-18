@@ -98,7 +98,11 @@ class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/events">
+                  <NavLink
+                    className="nav-link"
+                    to={`/events/${new Date().getFullYear()}/${
+                      new Date().getMonth() + 1
+                    }`}>
                     <i className="fa fa-calendar fa-lg" /> Event
                   </NavLink>
                 </NavItem>

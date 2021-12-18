@@ -28,7 +28,7 @@ function EventsComponent(props) {
             <Button color="dark">Create new event</Button>
           </Col>
         </Row>
-        {<CalendarComponent />}
+        {<CalendarComponent props={props} />}
       </div>
     );
   else

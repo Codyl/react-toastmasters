@@ -1,21 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Button, Row } from "reactstrap";
 import Col from "reactstrap/lib/Col";
 import styled from "styled-components";
 import EVENTS from "./EVENTS";
 
-const CalendarComponent = () => {
+const CalendarComponent = (props) => {
   const getDaysInMonth = (month, year, startDay = 0) => {
     return new Date(year, month, startDay);
   };
+  const date = new Date(
+    +props.props.match.params.year,
+    +props.props.match.params.month,
+    0
+  );
   const filterEventsByMonth = EVENTS.filter(
-    (event) => event.date.getMonth() === new Date().getMonth()
+    (event) => event.date.getMonth() === date.getMonth()
   );
   const DayHead = styled.th`
-    margin: auto;
+    margin: 0 auto;
     font-weight: 900;
+    width: 100px;
+    text-align: center;
   `;
-  const date = new Date();
   const selectedMonthLength = getDaysInMonth(
     date.getMonth() + 1,
     date.getFullYear()
@@ -91,7 +97,7 @@ const CalendarComponent = () => {
         calendar.push(
           <Day key={`${dayNum} ${weekNum}`}>
             {currDate}
-            <Link to={`./event/${todayEvents[0].id}`}>
+            <Link to={`/event/${todayEvents[0].id}`}>
               <Button>
                 <h4>{eventName}</h4>
                 <p>{eventTime}</p>
@@ -113,22 +119,39 @@ const CalendarComponent = () => {
       );
     }
   }
-
+  console.log(date.getFullYear());
   return (
-    <table className="container">
-      <thead>
-        <tr className="row">
-          <DayHead key={"a"}>Sunday</DayHead>
-          <DayHead key={"b"}>Monday</DayHead>
-          <DayHead key={"c"}>Tuesday</DayHead>
-          <DayHead key={"d"}>Wednesday</DayHead>
-          <DayHead key={"e"}>Thursday</DayHead>
-          <DayHead key={"f"}>Friday</DayHead>
-          <DayHead key={"g"}>Saturday</DayHead>
-        </tr>
-      </thead>
-      <tbody>{calendarWeek}</tbody>
-    </table>
+    <>
+      <h3>
+        {date.toLocaleString("en-US", { month: "long" })} {date.getFullYear()}
+      </h3>
+      <Row style={{ flex: 1, justifyContent: "space-between" }}>
+        <Col sm={2}>
+          <Link to={`/events/${+date.getFullYear()}/${date.getMonth()}`}>
+            <Button>{"< "} Previous month</Button>
+          </Link>
+        </Col>
+        <Col sm={2}>
+          <Link to={`/events/${+date.getFullYear()}/${date.getMonth() + 2}`}>
+            <Button> Next month{" >"}</Button>
+          </Link>
+        </Col>
+      </Row>
+      <table className="container">
+        <thead>
+          <tr className="row">
+            <DayHead key={"a"}>Sunday</DayHead>
+            <DayHead key={"b"}>Monday</DayHead>
+            <DayHead key={"c"}>Tuesday</DayHead>
+            <DayHead key={"d"}>Wednesday</DayHead>
+            <DayHead key={"e"}>Thursday</DayHead>
+            <DayHead key={"f"}>Friday</DayHead>
+            <DayHead key={"g"}>Saturday</DayHead>
+          </tr>
+        </thead>
+        <tbody>{calendarWeek}</tbody>
+      </table>
+    </>
   );
 };
 export default CalendarComponent;

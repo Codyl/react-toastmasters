@@ -6,11 +6,11 @@ import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import Contact from "./ContactComponent";
-import Jumbotron from "reactstrap/lib/Jumbotron";
-import Button from "reactstrap/lib/Button";
-import Col from "reactstrap/lib/Col";
-import Row from "reactstrap/lib/Row";
-import EVENTS from "./EVENTS";
+// import Jumbotron from "reactstrap/lib/Jumbotron";
+// import Button from "reactstrap/lib/Button";
+// import Col from "reactstrap/lib/Col";
+// import Row from "reactstrap/lib/Row";
+// import EVENTS from "./EVENTS";
 import About from "./AboutComponent";
 import Profile from "./ProfileComponent";
 import Join from "./JoinComponent";
@@ -32,10 +32,15 @@ class Main extends Component {
     const HomePage = () => {
       return <Home events={this.props.events} />;
     };
-    
+
     return (
       <div>
-        {<NotificationComponent notify={this.props.notify} events={this.props.events} />}
+        {
+          <NotificationComponent
+            notify={this.props.notify}
+            events={this.props.events}
+          />
+        }
         <Header />
         <Switch>
           <Route path="/home" component={HomePage} />
@@ -43,7 +48,11 @@ class Main extends Component {
           <Route exact path="/join" component={Join} />
           <Route exact path="/about" component={About} />
           <Route exact path="/agenda/:id" component={AgendaComponent} />
-          <Route exact path="/events" component={EventsComponent} />
+          <Route
+            exact
+            path="/events/:year/:month"
+            component={EventsComponent}
+          />
           <Route exact path="/event/:id" component={EventComponent} />
           <Route
             exact
@@ -54,7 +63,7 @@ class Main extends Component {
 
           <Redirect to="/home" />
         </Switch>
-        <Footer/>
+        <Footer />
       </div>
     );
   }

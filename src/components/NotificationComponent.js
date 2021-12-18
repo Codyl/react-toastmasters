@@ -76,3 +76,4 @@ const NotificationComponent = ({ notify, events }) => {
 };
 
 export default NotificationComponent;
+//export default withRouter(connect(mapStateToProps)(Main));

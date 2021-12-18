@@ -111,9 +111,22 @@ function Home(props) {
           <Jumbotron>
             <h2>Upcoming Events</h2>
             <ul style={{ listStyleType: "none" }}>
-              {props.events.map((event, limitTo) => {
-                return limitTo < 3 && <EventItemComponent event={event} />;
-              })}
+              {props.events
+                .filter((event) => event.date > new Date())
+                .sort((a, b) => {
+                  console.log(a, b, a.date < b.date);
+                  return a.date < b.date;
+                })
+                .map((event, limitTo) => {
+                  return (
+                    limitTo < 3 && (
+                      <EventItemComponent
+                        key={event.id + "-" + event.date}
+                        event={event}
+                      />
+                    )
+                  );
+                })}
             </ul>
             <Link to="/events">
               <Button>See all Events</Button>
