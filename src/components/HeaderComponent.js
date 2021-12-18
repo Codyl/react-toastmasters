@@ -44,7 +44,6 @@ class Header extends Component {
     window.addEventListener("scroll", () => {
       const maxScroll = document.body.clientHeight - window.innerHeight;
       let currentScrollPos = window.pageYOffset;
-      console.log(maxScroll);
       if (
         (maxScroll > 0 && prevScrollpos > currentScrollPos) ||
         (maxScroll <= 0 && prevScrollpos > currentScrollPos) ||
@@ -57,7 +56,7 @@ class Header extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", console.log(window.screenY));
+    window.removeEventListener("scroll");
   }
 
   toggleModal = () => {

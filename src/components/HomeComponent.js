@@ -61,7 +61,7 @@ function RenderCard({ item }) {
 
 function Home(props) {
   return (
-    <div className="row">
+    <>
       <div className="homeImage py-4">
         <div className="col-lg-6 offset-lg-5 mt-4">
           <Fade in>
@@ -70,7 +70,7 @@ function Home(props) {
         </div>
       </div>
       <Row className="mx-5 my-3">
-        <Col className="col-12 col-md-4">
+        <Col className="col-8 col-md-4">
           <h2>Learn More</h2>
           <p>
             Learn about what makes Midway Toastmasters the best place to gain
@@ -137,7 +137,7 @@ function Home(props) {
           </Jumbotron>
         </Col>
       </Row>
-    </div>
+    </>
   );
 }
 
