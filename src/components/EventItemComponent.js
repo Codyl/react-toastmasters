@@ -39,7 +39,7 @@ export default class EventItemComponent extends Component {
             </p>
           </Col>
           <Col>
-            <Link to={`./event/${this.props.event.id}`}>
+            <Link to={`/event/${this.props.event.id}`}>
               <Button color="info">More Details</Button>
             </Link>
           </Col>

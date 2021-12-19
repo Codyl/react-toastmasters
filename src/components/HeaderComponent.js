@@ -8,20 +8,13 @@ import {
   NavItem,
   Jumbotron,
   Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Form,
-  FormGroup,
-  Input,
-  Label,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
+import LoginComponent from "./LoginComponent";
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.toggleNav = this.toggleNav.bind(this);
     this.state = {
       isNavOpen: false,
       isModalOpen: false,
@@ -95,16 +88,19 @@ class Header extends Component {
                     <i className="fa fa-home fa-lg" /> Home
                   </NavLink>
                 </NavItem>
+                {/* TODO if no current user show this navItem */}
                 <NavItem onClick={this.hideNav}>
                   <NavLink className="nav-link" to="/join">
                     <i className="fa fa-handshake-o fa-lg" /> Join
                   </NavLink>
                 </NavItem>
+                {/* TODO if no current user show this navItem */}
                 <NavItem onClick={this.hideNav}>
                   <NavLink className="nav-link" to="/about">
                     <i className="fa fa-info fa-lg" /> About
                   </NavLink>
                 </NavItem>
+                {/* TODO if no current user show this navItem */}
                 <NavItem onClick={this.hideNav}>
                   <NavLink className="nav-link" to="/contact">
                     <i className="fa fa-address-card fa-lg" /> Contact Us
@@ -119,57 +115,41 @@ class Header extends Component {
                     <i className="fa fa-calendar fa-lg" /> Events
                   </NavLink>
                 </NavItem>
-                {/* <NavItem>
-                  <NavLink className="nav-link" to="/profile/0">
+                {/* Show these navitems if there is a current user  */}
+                <NavItem>
+                  <NavLink className="nav-link" to="/profile/<username>">
                     <i className="fa fa-user fa-lg" /> Profile
                   </NavLink>
-                </NavItem> */}
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/directory">
+                    <i className="fa fa-group fa-lg" /> Members
+                  </NavLink>
+                </NavItem>
+                {/* TODO if user is admin show this navitem */}
+                <NavItem>
+                  <NavLink className="nav-link" to="/administration">
+                    <i className="fa fa-key fa-lg" /> Administration
+                  </NavLink>
+                </NavItem>
               </Nav>
               <span className="navbar-text ml-auto">
-                <Button outline onClick={this.toggleModal}>
+                <Button
+                  outline
+                  onClick={() => {
+                    this.toggleModal();
+                    this.hideNav();
+                  }}>
                   <i className="fa fa-sign-in fa-lg" /> Login
                 </Button>
               </span>
             </Collapse>
           </div>
         </Navbar>
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
-          <ModalBody>
-            <Form onSubmit={this.handleLogin}>
-              <FormGroup>
-                <Label htmlFor="username">Username</Label>
-                <Input
-                  type="text"
-                  id="username"
-                  name="username"
-                  innerRef={(input) => (this.username = input)}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="password">password</Label>
-                <Input
-                  type="password"
-                  id="password"
-                  name="password"
-                  innerRef={(input) => (this.password = input)}
-                />
-              </FormGroup>
-              <FormGroup check>
-                <Label check></Label>
-                <Input
-                  type="checkbox"
-                  name="remember"
-                  innerRef={(input) => (this.remember = input)}
-                />
-                Remember Me
-              </FormGroup>
-              <Button type="submit" value="submit" color="primary">
-                Login
-              </Button>
-            </Form>
-          </ModalBody>
-        </Modal>
+        <LoginComponent
+          toggleModal={this.toggleModal}
+          isModalOpen={this.state.isModalOpen}
+        />
       </React.Fragment>
     );
   }

@@ -18,6 +18,10 @@ import EventsComponent from "./EventsComponent";
 import EventComponent from "./EventComponent";
 import AgendaComponent from "./AgendaComponent";
 import NotificationComponent from "./NotificationComponent";
+import { AuthProvider } from "../contexts/AuthContext";
+import RoleResourceComponent from "./RoleResourceComponent";
+import AdminComponent from "./AdminComponent";
+import DirectoryComponent from "./DirectoryComponent";
 
 const mapStateToProps = (state) => {
   return {
@@ -41,29 +45,38 @@ class Main extends Component {
             events={this.props.events}
           />
         }
-        <Header />
-        <Switch>
-          <Route path="/home" component={HomePage} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/join" component={Join} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/agenda/:id" component={AgendaComponent} />
-          <Route
-            exact
-            path="/events/:year/:month"
-            component={EventsComponent}
-          />
-          <Route exact path="/event/:id" component={EventComponent} />
-          <Route
-            exact
-            path="/profile/:username"
-            render={() => <Profile users={this.props.users} />}
-          />
-          <Route exact path="/visit" component={Contact} />
+        <AuthProvider>
+          <Header />
+          <Switch>
+            <Route path="/home" component={HomePage} />
+            <Route exact path="/contact" component={Contact} />
+            <Route exact path="/join" component={Join} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/administration" component={AdminComponent} />
+            <Route exact path="/directory" component={DirectoryComponent} />
+            <Route exact path="/agenda/:id" component={AgendaComponent} />
+            <Route
+              exact
+              path="/roles/:role"
+              component={RoleResourceComponent}
+            />
+            <Route
+              exact
+              path="/events/:year/:month"
+              component={EventsComponent}
+            />
+            <Route exact path="/event/:id" component={EventComponent} />
+            <Route
+              exact
+              path="/profile/:username"
+              render={() => <Profile users={this.props.users} />}
+            />
+            <Route exact path="/visit" component={Contact} />
 
-          <Redirect to="/home" />
-        </Switch>
-        <Footer />
+            <Redirect to="/home" />
+          </Switch>
+          <Footer />
+        </AuthProvider>
       </div>
     );
   }

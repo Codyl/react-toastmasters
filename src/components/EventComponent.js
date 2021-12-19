@@ -16,6 +16,7 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import { FadeTransform, Fade, Stagger } from "react-animation-components";
 
+//TODO Ability to cancel, edit and sign up modal, role resources
 export default function EventComponent(props) {
   const getEventData = props.match.params.id;
   const event = EVENTS.filter((event) => event.id === +getEventData)[0];
@@ -36,7 +37,6 @@ export default function EventComponent(props) {
             <Link to={`/agenda/${event.id}`}>
               <Button color="dark">Go to Agenda</Button>
             </Link>{" "}
-            <Button>Print</Button>{" "}
             <Button color="danger">Cancel this meeting</Button>{" "}
             <Button color="warning">Edit this meeting</Button>
           </Col>
@@ -122,7 +122,7 @@ export default function EventComponent(props) {
                           Sign up
                         </Button>
                       )}
-                      <Link to={`/role/${position.position}`}>
+                      <Link to={`/roles/${position.position}`}>
                         <Button>Role resources</Button>
                       </Link>
                     </div>

@@ -84,7 +84,7 @@ export default function AgendaComponent(props) {
           </Col>
           <Col>
             <Link to={`/event/${event.id}`}>
-              <Button color="dark">Go to roles</Button>
+              <Button color="dark">Go to roles</Button> <Button>Print</Button>
             </Link>
           </Col>
         </Row>

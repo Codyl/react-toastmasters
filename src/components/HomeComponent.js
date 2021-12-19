@@ -114,7 +114,7 @@ function Home(props) {
               {props.events
                 .filter((event) => event.date > new Date())
                 .sort((a, b) => {
-                  console.log(a, b, a.date < b.date);
+                  // console.log(a, b, a.date < b.date);
                   return a.date < b.date;
                 })
                 .map((event, limitTo) => {

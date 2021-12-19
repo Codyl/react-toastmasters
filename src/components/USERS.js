@@ -5,9 +5,16 @@ const USERS = [
     email: "lipton@teahouse.com",
     phone: "131-121-2344",
     bio: `
-    Here is my life story I would like to share...
+    My career had me making technical presentations for companies
+              nationwide. Toastmasters helped by giving me an environment to
+              learn, try and fail safely. The positive feedback mechanisms built
+              into the program help without causing me to feel badly about my
+              speech. If you need to build your confidence or learn better
+              methods then I would encourage you to give Toastmasters an honest
+              try.
     `,
     photoUrl: "",
+    office: `President`,
   },
   {
     id: 1,
