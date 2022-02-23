@@ -139,7 +139,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@linkedin-url](https://www.linkedin.com/in/cody-lillywhite/) - codylillyw@gmail.com
+Cody Lillywhite - [@linkedin-url](https://www.linkedin.com/in/cody-lillywhite/) - codylillyw@gmail.com
 
 Project Link: [https://github.com/Codyl/react-toastmasters](https://github.com/Codyl/react-toastmasters)
 
